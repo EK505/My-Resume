@@ -1,0 +1,199 @@
+/* --- General Styling & Variables --- */
+:root {
+    --primary-color: #2c3e50; /* Dark Blue */
+    --secondary-color: #3498db; /* Bright Blue */
+    --background-color: #ecf0f1; /* Light Gray */
+    --text-color: #34495e; /* Dark Gray */
+    --card-bg-color: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding-top: 60px; /* Add this to prevent content from hiding under the fixed navbar */
+}
+
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+section {
+    padding: 40px 10px;
+    border-bottom: 1px solid #ddd;
+}
+section:last-of-type {
+    border-bottom: none;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+h2 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Change from 'sticky' to 'fixed' */
+    top: 0;            /* This tells it to fix to the top */
+    left: 0;           /* Ensure it spans the full width */
+    right: 0;          /* Ensure it spans the full width */
+    z-index: 100;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+.nav-links li a:hover {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Profile Section --- */
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* This makes the image circular */
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+}
+
+.profile-text h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+}
+.profile-text p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+/* --- Dividers --- */
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 0;
+}
+
+/* --- History & Skills Sections --- */
+.history-item {
+    margin-bottom: 20px;
+}
+.skills-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* --- Contact Section --- */
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+.contact-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.contact-list li span {
+    font-weight: bold;
+    margin-right: 10px;
+    min-width: 80px;
+}
+.at-symbol {
+    height: 1em; /* Match the height of the surrounding text */
+    vertical-align: middle;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links li {
+        border-top: 1px solid var(--secondary-color);
+    }
+
+    .profile-container {
+        flex-direction: column;
+    }
+}
